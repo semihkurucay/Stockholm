@@ -681,6 +681,8 @@ public class frmProcessStock extends javax.swing.JInternalFrame {
         if (sBusiness.isThereID(txtBusinessID.getText())) {
             business = sBusiness.getInformationBusinessInvoice(txtBusinessID.getText());
             txtBusinessName.setText(business.getBusinessName());
+        }else{
+            txtBusinessName.setText("(BİLGİ SAĞLANAMADI)");
         }
     }//GEN-LAST:event_txtBusinessIDActionPerformed
 

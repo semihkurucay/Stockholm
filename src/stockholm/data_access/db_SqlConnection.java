@@ -14,11 +14,11 @@ import java.sql.SQLException;
  */
 public class db_SqlConnection {
 
-    private String userName = "user";
-    private String password = "user123";
-    private String url = "jdbc:sqlserver://A\\MSSQLSERVER01:52916;databaseName=db_Stockholm;encrypt=true;trustServerCertificate=true";
+    private String username = "user";
+    private String password = "user1";
+    private String url = "jdbc:sqlserver://A\\SQLEXPRESS:49699;databaseName=db_Stockholm;encrypt=true;trustServerCertificate=true";
 
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, userName, password);
+        return DriverManager.getConnection(url, username, password);
     }
 }

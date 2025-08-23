@@ -259,8 +259,8 @@ public class frmStock extends javax.swing.JInternalFrame {
 
         txtKDV.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 16)); // NOI18N
         txtKDV.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtKDVKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtKDVKeyReleased(evt);
             }
         });
 
@@ -269,8 +269,8 @@ public class frmStock extends javax.swing.JInternalFrame {
 
         txtPrice.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 16)); // NOI18N
         txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPriceKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPriceKeyReleased(evt);
             }
         });
 
@@ -516,23 +516,23 @@ public class frmStock extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtCategoryIDActionPerformed
 
-    private void txtPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyTyped
+    private void txtPriceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyReleased
         // TODO add your handling code here:
         try {
             lblSellPrice.setText(new BigDecimal(txtPrice.getText()).add(new BigDecimal(txtKDV.getText()).multiply(new BigDecimal(txtPrice.getText())).divide(new BigDecimal(100), 2, RoundingMode.HALF_UP)) + " TL");
         } catch (Exception e) {
             lblSellPrice.setText("0.00 TL");
         }
-    }//GEN-LAST:event_txtPriceKeyTyped
+    }//GEN-LAST:event_txtPriceKeyReleased
 
-    private void txtKDVKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKDVKeyTyped
+    private void txtKDVKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKDVKeyReleased
         // TODO add your handling code here:
         try {
             lblSellPrice.setText(new BigDecimal(txtPrice.getText()).add(new BigDecimal(txtKDV.getText()).multiply(new BigDecimal(txtPrice.getText())).divide(new BigDecimal(100), 2, RoundingMode.HALF_UP)) + " TL");
         } catch (Exception e) {
             lblSellPrice.setText("0.00 TL");
         }
-    }//GEN-LAST:event_txtKDVKeyTyped
+    }//GEN-LAST:event_txtKDVKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
