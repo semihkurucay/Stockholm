@@ -22,10 +22,10 @@ public class frmHome extends javax.swing.JFrame {
      */
     public frmHome() {
         initComponents();
-        
+
         setIconImage(new ImageIcon(getClass().getResource("/resources/icon.png")).getImage());
         lblLogo.setIcon(new ImageIcon(getClass().getResource("/resources/logoText_150_170_Line.png")));
-        
+
         lblDate.setText(getDateTimeLabel());
         txtShowMessage.setText(message.getMessage());
     }
@@ -399,10 +399,18 @@ public class frmHome extends javax.swing.JFrame {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
         if (message.chkSetMessage(txtShowMessage.getText())) {
-            if (sMessage.isUpdate(message)) {
-                JOptionPane.showMessageDialog(null, "Notunuz başarılı bir şekilde güncellendi", "Başarılı Güncelleme", JOptionPane.INFORMATION_MESSAGE);
+            if (sMessage.getCountMessage() > 0) {
+                if (sMessage.isUpdate(message)) {
+                    JOptionPane.showMessageDialog(null, "Notunuz başarılı bir şekilde güncellendi", "Başarılı Güncelleme", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Notunuz güncellenemedi", "Güncelleme Başarısız", JOptionPane.ERROR_MESSAGE);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Notunuz güncellenemedi", "Güncelleme Başarısız", JOptionPane.ERROR_MESSAGE);
+                if (sMessage.isAdd(message)) {
+                    JOptionPane.showMessageDialog(null, "Notunuz başarılı bir şekilde güncellendi", "Başarılı Güncelleme", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Notunuz güncellenemedi", "Güncelleme Başarısız", JOptionPane.ERROR_MESSAGE);
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Notunuz güncellenemedi,\n\n* En fazla 1000 karakter girin.", "Hatalı Format", JOptionPane.ERROR_MESSAGE);

@@ -236,10 +236,18 @@ public class frmMailSettings extends javax.swing.JInternalFrame {
                 mail.setStarttls(false);
             }
 
-            if (sMail.isUpdate(mail)) {
-                JOptionPane.showMessageDialog(null, "Mail ayarlarınız güncellemesi başarılı bir şekilde gerçekleşti.", "Güncelleme Başarılı", JOptionPane.INFORMATION_MESSAGE);
+            if (sMail.getCountMail() > 0) {
+                if (sMail.isUpdate(mail)) {
+                    JOptionPane.showMessageDialog(null, "Mail ayarlarınız güncellemesi başarılı bir şekilde gerçekleşti.", "Güncelleme Başarılı", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mail ayarlarınız güncellenemedi.", "Güncelleme Başarısız", JOptionPane.ERROR_MESSAGE);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Mail ayarlarınız güncellenemedi.", "Güncelleme Başarısız", JOptionPane.ERROR_MESSAGE);
+                if (sMail.isAdd(mail)) {
+                    JOptionPane.showMessageDialog(null, "Mail ayarlarınız güncellemesi başarılı bir şekilde gerçekleşti.", "Güncelleme Başarılı", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mail ayarlarınız güncellenemedi.", "Güncelleme Başarısız", JOptionPane.ERROR_MESSAGE);
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Hatalı formatta giriş yaptınız,\n\n* En fazla 50 karakter girin.\n* Port bölümü sadece tam sayı girin", "Hatalı Format", JOptionPane.ERROR_MESSAGE);

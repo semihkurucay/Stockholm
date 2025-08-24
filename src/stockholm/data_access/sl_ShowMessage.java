@@ -46,6 +46,48 @@ public class sl_ShowMessage {
         return new cl_ShowMessage(message);
     }
 
+    public int getCountMessage(){
+        int countMessage = -1;
+        
+        try {
+            conn = sConn.getConnection();
+            stt = conn.createStatement();
+            rs = stt.executeQuery("Select count(*) as 'countMessage' from tbl_ShowMessage");
+
+            while (rs.next()) {
+                countMessage = rs.getInt("countMessage");
+            }
+
+            conn.close();
+            stt.close();
+            rs.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "sl_ShowMessage.getCountMessage metodunda sql hatası ile karşılaşıldı!\nErrorMessage:" + e.getMessage(), "[sl_ShowMessage.getCountMessage] Sql Hatası - " + e.getErrorCode(), JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return countMessage;
+    }
+    
+    public boolean isAdd(cl_ShowMessage message) {
+        boolean isComplate = false;
+
+        try {
+            conn = sConn.getConnection();
+            pstt = conn.prepareStatement("insert into tbl_ShowMessage (mes_Text) values (?)");
+            pstt.setString(1, message.getMessage());
+            pstt.executeUpdate();
+
+            conn.close();
+            pstt.close();
+
+            isComplate = true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "sl_ShowMessage.isUpdate metodunda sql hatası ile karşılaşıldı!\nErrorMessage:" + e.getMessage(), "[sl_ShowMessage.isUpdate] Sql Hatası - " + e.getErrorCode(), JOptionPane.ERROR_MESSAGE);
+        }
+
+        return isComplate;
+    }
+    
     public boolean isUpdate(cl_ShowMessage message) {
         boolean isComplate = false;
 

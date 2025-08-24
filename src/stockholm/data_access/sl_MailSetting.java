@@ -55,7 +55,54 @@ public class sl_MailSetting {
 
         return new cl_MailSettings(mail, password, port, host, auth, starttls);
     }
+    
+    public int getCountMail(){
+        int countMail = -1;
+        
+        try {
+            conn = sConn.getConnection();
+            stt = conn.createStatement();
+            rs = stt.executeQuery("Select count(*) as 'countMail' from tbl_MailSetting");
 
+            while (rs.next()) {
+                countMail = rs.getInt("countMail");
+            }
+
+            conn.close();
+            stt.close();
+            rs.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "sl_MailSetting.getCountMail metodunda sql hatası ile karşılaşıldı!\nErrorMessage:" + e.getMessage(), "[sl_LoginAccount.getCountMail] Sql Hatası - " + e.getErrorCode(), JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return countMail;
+    }
+
+    public boolean isAdd(cl_MailSettings mail) {
+        boolean isComplate = false;
+
+        try {
+            conn = sConn.getConnection();
+            pstt = conn.prepareStatement("insert into tbl_MailSetting (mal_Mail,mal_Password,mal_Port,mal_Host,mal_Auth,mal_Starttls) values (?,?,?,?,?,?)");
+            pstt.setString(1, mail.getMail());
+            pstt.setString(2, mail.getPassword());
+            pstt.setInt(3, mail.getPort());
+            pstt.setString(4, mail.getHost());
+            pstt.setBoolean(5, mail.getAuth());
+            pstt.setBoolean(6, mail.getStarttls());
+            pstt.executeUpdate();
+
+            conn.close();
+            pstt.close();
+
+            isComplate = true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "sl_MailSetting.isUpdate metodunda sql hatası ile karşılaşıldı!\nErrorMessage:" + e.getMessage(), "[sl_LoginAccount.isUpdate] Sql Hatası - " + e.getErrorCode(), JOptionPane.ERROR_MESSAGE);
+        }
+
+        return isComplate;
+    }
+    
     public boolean isUpdate(cl_MailSettings mail) {
         boolean isComplate = false;
 
