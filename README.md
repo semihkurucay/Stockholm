@@ -41,3 +41,12 @@ Stockholm ile stoklarınızı düzenli tutmak ve ticari faaliyetlerinizi verimli
 <img width="956" height="583" alt="Ekran görüntüsü 2025-08-24 004622" src="https://github.com/user-attachments/assets/4777b2ff-a884-46be-b945-45378603205d" />
 <img width="1040" height="600" alt="Ekran görüntüsü 2025-08-24 004638" src="https://github.com/user-attachments/assets/c4ac98ca-ea28-4e17-8559-8196c299f213" />
 <img width="355" height="550" alt="Ekran görüntüsü 2025-08-24 004652" src="https://github.com/user-attachments/assets/0c6ac2e1-17d7-4a96-b561-6156748df124" />
+
+
+## ⚖️ Lisans
+
+Bu proje [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) lisansı ile lisanslanmıştır.
+
+🔒 Ticari kullanım yasaktır.  
+📎 Eğitim ve kişisel kullanım için serbesttir.  
+📩 Ticari kullanım için iletişime geçiniz.
